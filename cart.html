@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Watsons</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #00bcd4;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #00bcd4;
+        }
+
+        .cart-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-container h2 {
+            color: #00bcd4;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .cart-item p {
+            flex: 1;
+        }
+
+        .discount-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.discount-section input {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.apply-btn {
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.apply-btn:hover {
+    background-color: #0097a7;
+}
+
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .remove-btn:hover {
+            background: darkred;
+        }
+
+        .cart-total {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #00bcd4;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0097a7;
+        }
+
+        .clear-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .clear-btn:hover {
+            background-color: darkred;
+        }
+
+        footer { 
+  background-color: #00bcd4; 
+  color: white; 
+  text-align: center; 
+  padding: 4px 0; 
+  position: fixed; 
+  width: 100%; 
+  bottom: 0; 
+  font-size: 12px; 
+
+ } 
+
+  footer p { 
+     margin: 0; 
+ } 
+    </style>
+</head>
+<body>
+
+    <div align="center">
+        <audio controls>
+            <source src="audio/Watsons_Kaw_Kaw_Deals..mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></div>
+
+<header>
+    <img src="images/IMG_0520.JPG" alt="Watsons Logo" style="width: 240px; height: auto;">
+</header>
+
+<nav>
+    <div class="navbar">
+        <a href="index.html">Home ♡</a>
+        <a href="products.html">Products ♡</a>
+        <a href="cart.html">Cart ♡</a>
+        <a href="discover.html">Discover ♡</a>
+        <a href="contact.html">Contact ♡</a>
+    </div>
+</nav>
+
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <div id="cart-container"></div>
+
+    <div class="discount-section">
+        <input type="text" id="discount-code" placeholder="Enter discount code">
+        <button class="apply-btn" onclick="applyDiscount()">Apply Code</button>
+        <p id="discount-message" style="color: green; font-weight: bold;"></p>
+    </div>
+    
+    <!-- Coupon Message Section -->
+    <div id="couponMessage" style="display: none; text-align: center; margin-top: 15px;">
+        <h3 style="color: red;">You already claimed it! 🎉</h3>
+        
+        <!-- Coupon Deals -->
+        <div id="couponDeals" style="display: none; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+            <h4>Your Exclusive Coupon Deals:</h4>
+            <ul style="list-style: none; padding: 0;">
+                <li>🎉 10% off on your next purchase! Use code: <strong>COUPON10</strong></li>
+                <li>🎁 Free shipping on all orders! Use code: <strong>FREESHIP</strong></li>
+                <li>🛍 Buy 1 Get 1 Free on selected items! Use code: <strong>BUYONE</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="cart-total">Total: <span id="cart-total">RM0.00</span></p>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+</div>
+
+<footer class="footer"> 
+    <big><p>© 2025 Watsons Malaysia</p></big> 
+</footer> 
+
+<script>
+    let discountApplied = false;
+
+    function loadCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let container = document.getElementById("cart-container");
+        let total = document.getElementById("cart-total");
+        container.innerHTML = "";
+
+        if (cart.length === 0) {
+            container.innerHTML = "<p style='text-align: center;'>Your cart is empty</p>";
+            total.innerText = "RM0.00";
+            return;
+        }
+
+        let cartTotal = 0;
+
+        cart.forEach((item, index) => {
+            let div = document.createElement("div");
+            div.classList.add("cart-item");
+
+            let price = parseFloat(item.price);
+            let discountedPrice = price;
+
+            // Apply 10% discount if COUPON10 is already used
+            if (localStorage.getItem("discountCode") === "COUPON10") {
+                discountedPrice = price * 0.9; // 10% off
+            }
+
+            div.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <p>${item.name} - RM${discountedPrice.toFixed(2)}</p>
+                <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+            `;
+            container.appendChild(div);
+            cartTotal += discountedPrice;
+        });
+
+        total.innerText = `RM${cartTotal.toFixed(2)}`;
+    }
+
+    function removeItem(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        loadCart();
+    }
+
+    function clearCart() {
+        localStorage.removeItem("cart");
+        localStorage.removeItem("discountCode");
+        discountApplied = false;
+        document.getElementById("discount-message").innerText = "";
+        document.getElementById("couponMessage").style.display = "none";
+        document.getElementById("couponDeals").style.display = "none";
+        loadCart();
+    }
+
+    function checkout() {
+        alert("Thank you for buying in Watson!");
+        clearCart();
+    }
+
+    function applyDiscount() {
+        if (discountApplied) {
+            alert("Discount code has already been applied!");
+            return;
+        }
+
+        let code = document.getElementById("discount-code").value.trim().toUpperCase();
+        
+        if (code === "COUPON10") {
+            localStorage.setItem("discountCode", "COUPON10");
+            discountApplied = true;
+
+            document.getElementById("discount-message").innerText = "10% Discount Applied! 🎉";
+            document.getElementById("couponMessage").style.display = "block";
+            document.getElementById("couponDeals").style.display = "block";
+
+            loadCart(); // Reload cart to apply discount per product
+        } else {
+            alert("Invalid discount code! Please try again.");
+        }
+    }
+
+    window.onload = loadCart;
+</script>
+
+</body>
+</html>

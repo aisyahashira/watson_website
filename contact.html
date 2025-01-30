@@ -1,0 +1,546 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Contact Us</title> 
+    <style> 
+        body { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f4f4; 
+            color: #333; 
+        } 
+ 
+        header { 
+            background-color: #00bcd4; 
+            color: white; 
+            padding: 20px 0; 
+            text-align: center; 
+            font-size: 26px; 
+            font-weight: bold; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px; 
+        } 
+ 
+        header img { 
+            width: 150px; 
+            height: auto; 
+        } 
+ 
+        .navbar { 
+            display: flex; 
+            justify-content: center; 
+            background-color: #ffffff; 
+            padding: 10px 0; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .navbar a { 
+            text-decoration: none; 
+            color: #333; 
+            margin: 0 20px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            font-size: 14px; 
+        } 
+ 
+        .navbar a:hover { 
+            color: #00bcd4; 
+        } 
+ 
+        .container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            background: #ffffff; 
+            border-radius: 16px; 
+            padding: 40px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            max-width: 1000px; 
+            width: 90%; 
+            margin: 40px auto; 
+        } 
+ 
+        .form-section { 
+            flex: 2; 
+            margin-right: 30px; 
+        } 
+ 
+        .form-section h1 { 
+            font-size: 28px; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            color: #00bcd4; 
+        } 
+ 
+        .form-group { 
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 20px; 
+            position: relative; 
+        } 
+ 
+        .form-group label { 
+            font-size: 14px; 
+            margin-bottom: 8px; 
+        } 
+ 
+        .form-group input, 
+        .form-group textarea { 
+            background: #f9f9f9; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            padding: 10px; 
+            font-size: 14px; 
+            color: #333; 
+        } 
+ 
+        .form-group input::placeholder, 
+        .form-group textarea::placeholder { 
+            color: #888; 
+        } 
+ 
+        .form-group textarea { 
+            resize: none; 
+            height: 100px; 
+        } 
+ 
+        .form-row { 
+            display: flex; 
+            gap: 10px; 
+        } 
+ 
+        .form-group.full-width { 
+            flex: 1; 
+        } 
+ 
+        .error-text { 
+            color: red; 
+            font-size: 12px; 
+            position: absolute; 
+            bottom: -18px; 
+            left: 0; 
+            display: none; 
+        } 
+ 
+        .submit-btn { 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 8px; 
+            background: #00bcd4; 
+            color: #fff; 
+            font-size: 16px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: background 0.3s, transform 0.3s; 
+        } 
+ 
+        .submit-btn:hover { 
+            background: #008c9e; 
+            transform: translateY(-2px); 
+        } 
+ 
+        .contact-info { 
+            flex: 1; 
+            padding-left: 30px; 
+            border-left: 1px solid #ddd;
+        } 
+ 
+ .contact-info h2 { 
+     font-size: 24px; 
+     color: #00bcd4; 
+     margin-bottom: 20px; 
+ } 
+
+ .contact-info p { 
+     margin: 10px 0; 
+     color: #555; 
+ } 
+
+ .contact-info .icon { 
+     display: flex; 
+     align-items: center; 
+     margin-bottom: 20px; 
+ } 
+
+ .contact-info .icon img { 
+     width: 24px; 
+     height: 24px; 
+     margin-right: 10px; 
+ } 
+ .contact-info .icon span { 
+     font-size: 15px; 
+ } 
+
+ .contact-info .icon a { 
+     text-decoration: none; 
+     color: inherit; 
+     position: relative; 
+     transition: color 0.3s ease, transform 0.3s ease; 
+ } 
+
+ .contact-info .icon a:hover { 
+     color: #00bcd4; 
+     transform: scale(1.05); 
+ } 
+
+ .contact-info .icon a::after { 
+     content: ''; 
+     position: absolute; 
+     left: 0; 
+     bottom: -2px; 
+     width: 0; 
+     height: 2px; 
+     background-color: #00bcd4; 
+     transition: width 0.3s ease; 
+ } 
+
+ .contact-info .icon a:hover::after { 
+     width: 100%; 
+ } 
+
+ .social-media { 
+     margin-top: 20px; 
+ } 
+
+ .social-media h3 { 
+     font-size: 18px; 
+     color: #00bcd4; 
+     margin-bottom: 10px; 
+ } 
+
+ .social-media .icon a { 
+     margin-right: 10px; 
+     transition: transform 0.3s ease; 
+ } 
+
+ .social-media .icon a:hover { 
+     transform: scale(1.1); 
+ } 
+
+ .operating-hours { 
+     margin: 40px auto; 
+     max-width: 1000px; 
+     width: 90%; 
+     background: #ffffff; 
+     border-radius: 16px; 
+     padding: 40px; 
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+ } 
+
+ .operating-hours h2 { 
+     font-size: 24px; 
+     color: #00bcd4; 
+     margin-bottom: 20px; 
+     text-align: center; 
+ } 
+
+ .operating-hours table { 
+     animation: fadeIn 1s ease-in-out; 
+     width: 100%; 
+     border-collapse: collapse; 
+     margin: 0 auto; 
+     text-align: center; 
+ } 
+
+ .operating-hours th, 
+ .operating-hours td { 
+     padding: 12px 20px; 
+     border: 1px solid #ddd; 
+     text-align: center; 
+ } 
+
+ .operating-hours th { 
+     background-color: #00bcd4; 
+     color: white; 
+     font-weight: bold; 
+ } 
+
+ .operating-hours tbody tr:nth-child(odd) { 
+     background-color: #f9f9f9; 
+ } 
+
+ .operating-hours tbody tr:nth-child(even) { 
+     background-color: #ffffff; 
+ } 
+
+ .operating-hours tbody tr:hover { 
+     background-color: #e0f7fa; 
+     cursor: pointer; 
+     transform: scale(1.02); 
+     transition: all 0.3s ease-in-out; 
+ } 
+
+footer { 
+  background-color: #00bcd4; 
+  color: white; 
+  text-align: center; 
+  padding: 4px 0; 
+  position: fixed; 
+  width: 100%; 
+  bottom: 0; 
+  font-size: 12px; 
+
+ } 
+
+  footer p { 
+     margin: 0; 
+ } 
+
+ @media (max-width: 768px) 
+{
+     .container { 
+         flex-direction: column; 
+     } 
+
+     .form-section { 
+         margin-right: 0;
+        } 
+ 
+ .contact-info { 
+     padding-left: 0; 
+     border-left: none; 
+     margin-top: 30px; 
+ } 
+
+ nav .navbar { 
+     flex-direction: column; 
+     gap: 10px; 
+     align-items: center; 
+ } }
+
+ .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #008c9e;
+    transform: scale(1.1);
+}
+
+</style> 
+</head> 
+<body> 
+
+    <div align="center">
+        <audio controls>
+            <source src="audio/Watsons_Kaw_Kaw_Deals..mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></div>
+
+        <header>
+            <img src="images/IMG_0520.JPG" alt="Watsons Logo" style="width: 240px; height: auto;">
+        </header>
+
+
+<nav> 
+<div class="navbar"> 
+ <a href="index.html">Home ♡</a> 
+ <a href="products.html">Products ♡</a> 
+ <a href="cart.html">Cart ♡</a> 
+ <a href="discover.html">Discover ♡</a> 
+ <a href="contact.html">Contact ♡</a> 
+</div> 
+</nav> 
+
+<div class="container"> 
+
+<div class="form-section"> 
+<h1>Contact Us</h1> 
+<form action="mailto:humairafatin31@gmail.com" method="post" enctype= "text/plain"> 
+<div class="form-group"> 
+<label for="name">Name</label> 
+<input type="text" id="name" placeholder="Enter your name"> 
+<span class="error-text" id="name-error">Please enter your name.</span> 
+</div> 
+
+<div class="form-row"> 
+<div class="form-group full-width"> 
+<label for="email">Email</label> 
+<input type="email" id="email" placeholder="Enter your email"> 
+<span class="error-text" id="email-error">Please enter a valid email address.</span> 
+</div> 
+
+<div class="form-group full-width"> 
+<label for="phone">Phone Number</label> 
+<input type="tel" id="phone" placeholder="Enter your phone number"> 
+<span class="error-text" id="phone-error">Please enter your phone number.</span> 
+</div> 
+</div> 
+
+<div class="form-group"> 
+<label for="message">Message</label> 
+<textarea id="message" placeholder="Write your message"></textarea> 
+<span class="error-text" id="message-error">Please enter your message.</span> 
+</div> 
+<button class="submit-btn" type="submit">Submit</button> 
+</form> 
+</div> 
+
+<div class="contact-info"> 
+<h2>Contact Info</h2> 
+<p>For questions, technical assistance, or collaboration opportunities via the contact information provided.</p> 
+<div class="icon"> 
+    <img src="images2/Phone.png" alt="Phone Icon"> 
+    <span>1300-880-847</span> 
+</div> 
+<div class="icon"> 
+    <img src="images2/Email.png" alt="Email Icon"> 
+    <span>hello@watsons.com.my</span> 
+</div> 
+<div class="icon"> 
+<img src="images2/Location.png" alt="Location Icon"> 
+<span> 
+<a  
+href="https://www.google.com/maps?q=Watson's+Personal+Care+Stores+Sdn+Bhd+Level+7,+ARENA+WATSONS,+Exchange+106,+Lingkaran+TRX,+Tun+Razak+Exchange,+55188+Kuala+Lumpur,+Wilayah+Persekutuan+Kuala+Lumpur"  
+target="_blank"  
+style="text-decoration: none; color: inherit;"> 
+Watson's Personal Care Stores Sdn Bhd Level 7, ARENA WATSONS, Exchange 106, Lingkaran TRX, Tun Razak Exchange, 55188 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur. 
+</a> 
+</span> 
+</div> 
+<div class="social-media"> 
+    <h3>Follow Us</h3> 
+    <div class="icon"> 
+        <a href="https://www.facebook.com/share/1Dux1JxQiA/?mibextid=wwXIfr" target="_blank"> 
+            <img src="images2/facebook.png" alt="Facebook Icon"> 
+        </a> 
+        <a href="https://www.instagram.com/watsonsmy?igsh=Z3M3b2pvMDRibHUz" target="_blank"> 
+            <img src="images2/instagram.png" alt="Instagram Icon"> 
+        </a> 
+        <a href="https://x.com/watsonsmy?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor&mx=2" target="_blank"> 
+            <img src="images2/X.png" alt="X Icon"> 
+</a> 
+<a href="https://www.tiktok.com/@watsonsmy?_t=ZS-8tRY3US8FHk&_r=1" target="_blank"> 
+            <img src="images2/tiktok.png" alt="Tiktok Icon">
+
+        </a> 
+               </div> 
+           </div> 
+       </div> 
+   </div> 
+   <div class="operating-hours"> 
+        <h2>Operating Hours</h2> 
+        <table> 
+            <thead> 
+                <tr> 
+                    <th>Day</th> 
+                    <th>Opening Time</th> 
+                    <th>Closing Time</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                <tr> 
+                    <td>Monday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Tuesday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Wednesday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Thursday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Friday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Saturday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+                <tr> 
+                    <td>Sunday</td> 
+                    <td>10:00 AM</td> 
+                    <td>10:00 PM</td> 
+                </tr> 
+            </tbody> 
+        </table> 
+    </div> 
+   
+    <footer>
+        <big><p>© 2025 Watsons Malaysia</p></big>
+    </footer>
+   
+ 
+    <script> 
+        document.getElementById('contact-form').addEventListener('submit', function(event) { 
+            let hasError = false; 
+            document.querySelectorAll('.error-text').forEach(error => (error.style.display = 'none')); 
+ 
+            const fields = [ 
+                { id: 'name', errorId: 'name-error', validate: value => value.trim() !== '' }, 
+                { id: 'email', errorId: 'email-error', validate: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) }, 
+                { id: 'phone', errorId: 'phone-error', validate: value => value.trim() !== '' }, 
+                { id: 'message', errorId: 'message-error', validate: value => value.trim() !== '' } 
+            ]; 
+ 
+            fields.forEach(field => { 
+                const input = document.getElementById(field.id); 
+                if (!field.validate(input.value)) { 
+                    document.getElementById(field.errorId).style.display = 'block'; 
+                    hasError = true; 
+                } 
+            }); 
+ 
+            if (hasError) { 
+                event.preventDefault(); 
+            } else { 
+                const name = document.getElementById('name').value; 
+                const email = document.getElementById('email').value; 
+                const phone = document.getElementById('phone').value; 
+                const message = document.getElementById('message').value; 
+       
+ 
+            } 
+        }); 
+    </script> 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let backToTopButton = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) { 
+                backToTopButton.style.display = "block"; 
+            } else { 
+                backToTopButton.style.display = "none"; 
+            }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+
+<button id="backToTop" class="back-to-top">↑ Back to Top</button>
+</body> 
+</html>
