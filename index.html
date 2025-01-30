@@ -1,0 +1,1170 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watsons</title>
+
+    <style>
+        body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #00bcd4;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header img {
+    width: 150px;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
+
+         /* Animations */
+         @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+            to {
+                opacity: 1;
+                }
+            }
+
+            @keyframes bounce {
+                0%, 100% {
+                transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-10px);
+                    }
+            }
+
+            /* Moving Deal Banner */
+.moving-deal-banner {
+    position: relative;
+    width: 100%;
+    background-color: #ff4c4c;
+    color: white;
+    overflow: hidden;
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.deal-banner-wrapper {
+    display: flex;
+    animation: scrollBanner 15s linear infinite; /* Scroll animation */
+}
+
+.deal {
+    flex: 0 0 auto;
+    padding: 0 30px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Keyframes for Scrolling Deals */
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .product p {
+            color: #888;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .coupon-zone {
+        text-align: center;
+        margin: 40px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .coupon-zone button {
+        background-color: #00bcd4;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .coupon-zone button:hover {
+        background-color: #0097a7;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none; 
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal input {
+        margin: 10px 0;
+        padding: 10px;
+        width: 80%;
+        font-size: 14px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .modal button {
+        background-color: #00bcd4;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .modal button:hover {
+        background-color: #0097a7;
+    }
+
+    #couponMessage {
+        font-size: 18px;
+        color: #f44336;
+    }
+
+    #couponDeals {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    #couponDeals ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    #couponDeals li {
+        margin: 10px 0;
+    }
+
+        .flash-sale {
+            background-color: #ffffff;
+            color: #333;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .flash-sale h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        .flash-sale .product {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            vertical-align: top;
+        }
+
+        .flash-sale .countdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .flash-sale .countdown {
+            font-size: 30px;
+            font-weight: bold;
+            margin-left: 20px;
+            color: #f44336;
+        }
+
+        .flash-sale .dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .flash-sale .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bbb;
+            transition: background-color 0.3s;
+        }
+
+        .flash-sale .dot.active {
+            background-color: #00bcd4;
+        }
+
+        footer {
+            background-color: #00bcd4;
+            color: white;
+            text-align: center;
+            padding: 4px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 12px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Star rating styles */
+        .star-rating {
+            font-size: 18px;
+            color: #FFD700;
+        }
+
+        .star-rating span {
+            margin-right: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .product-grid {
+                padding: 20px;
+            }
+
+            .flash-sale .product {
+                width: 150px;
+            }
+        }
+
+         /* Best Seller and Most Popular Section Styling */
+    .best-seller, .most-popular {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: auto;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        font-size: 28px;
+        color: #00bcd4;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .carousel {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .carousel .product {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .carousel .product img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .carousel .product .badge {
+        background-color: #00bcd4;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 50%;
+        padding: 8px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .carousel .product p {
+        margin: 10px 0 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .carousel .product:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #payment-options {
+    text-align: center;
+    padding: 50px 0; /* Increased padding for a bigger section */
+    background-color: #f8f8f8;
+}
+
+.payment-container img {
+    width: 100%; /* Make it take the full width */
+    max-width: 1000px; /* Increase max width */
+    height: auto;
+}
+
+.watsons-footer {
+    background-color: #f8f8f8; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+    text-align: center;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.watsons-footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.watsons-footer .footer-column {
+    flex: 1;
+    min-width: 180px;
+    margin: 10px;
+    text-align: left;
+}
+
+.watsons-footer h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #00bcd4; /* Watsons brand color */
+}
+
+.watsons-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.watsons-footer ul li {
+    margin: 5px 0;
+}
+
+.watsons-footer ul li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.watsons-footer ul li a:hover {
+    color: #00bcd4; /* Watsons hover effect */
+}
+
+.watsons-footer .social-icons {
+    margin-top: 10px;
+}
+
+.watsons-footer .social-icons a {
+    font-size: 20px;
+    margin: 0 8px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.watsons-footer .social-icons a:hover {
+    color: #00bcd4;
+}
+
+.hidden-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 60%;
+    max-width: 500px;
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+.hidden-content h2 {
+    color: #00bcd4;
+}
+
+.hidden-content button {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.hidden-content button:hover {
+    background-color: #0097a7;
+}
+
+.add-to-bag {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .add-to-bag:hover {
+            background: #0097a7;
+        }
+
+        .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #008c9e;
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #00bcd4;
+    color: white;
+    text-align: center;
+    padding: 4px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
+}
+
+footer p {
+    margin: 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <div align="center">
+    <audio controls>
+        <source src="audio/Watsons_Kaw_Kaw_Deals..mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio></div>
+    
+
+<header>
+    <img src="images/IMG_0520.JPG" alt="Watsons Logo" style="width: 240px; height: auto;">
+</header>
+
+<div class="navbar">
+    <a href="index.html" >Home ♡</a>
+    <a href="products.html">Products ♡</a>
+    <a href="cart.html">Cart ♡</a>
+    <a href="discover.html">Discover ♡</a>
+    <a href="contact.html">Contact ♡</a>
+</div>
+
+<!-- Moving Deal Banner (below Navbar) -->
+<div class="moving-deal-banner">
+    <div class="deal-banner-wrapper">
+        <div class="deal">🔥 Enjoy Up to 70% Off on Selected Items!</div>
+        <div class="deal">🛒 Free Shipping for Orders Above RM100!</div>
+        <div class="deal">💄 Buy 1 Get 1 Free on Skincare Products!</div>
+        <div class="deal">💥 Exclusive Watsons Members Only Deals!</div>
+    </div>
+</div>
+
+<!-- "Welcome to Watsons" text (below Deal Banner) -->
+<div align="center">
+    <h2>Welcome to Watsons</h2>
+</div>
+
+<!-- Regular Products Section -->
+<div class="product-grid">
+    <div class="product">
+        <img src="images2/IMG_0514.JPG" alt="Product 1">
+        <h3>Makeup</h3>
+        <p>RM65.00</p>
+        <button class="add-to-bag" onclick="addToCart('Makeup', 65.00, 'images/IMG_0514.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images/IMG_0517.JPG" alt="Product 2">
+        <h3>Skincare</h3>
+        <p>RM45.00</p>
+        <button class="add-to-bag" onclick="addToCart('Skincare', 45.00, 'images/IMG_0517.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images2/IMG_0519.JPG" alt="Product 3">
+        <h3>Health</h3>
+        <p>RM39.99</p>
+        <button class="add-to-bag" onclick="addToCart('Health', 39.99, 'images/IMG_0519.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images2/IMG_0511.JPG" alt="Product 4">
+        <h3>Hair Care</h3>
+        <p>RM75.00</p>
+        <button class="add-to-bag" onclick="addToCart('Hair Care', 75.00, 'images/IMG_0511.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images2/IMG_0522.JPG" alt="Product 5">
+        <h3>Body Care</h3>
+        <p>RM55.00</p>
+        <button class="add-to-bag" onclick="addToCart('Body Care', 55.00, 'images/IMG_0522.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images2/IMG_0515.JPG" alt="Product 6">
+        <h3>Supplements</h3>
+        <p>RM89.99</p>
+        <button class="add-to-bag" onclick="addToCart('Supplements', 89.99, 'images/IMG_0515.JPG')">Add to Bag</button>
+    </div>
+</div>
+
+<!-- Add Coupon Zone Deal Section -->
+<div class="coupon-zone">
+    <h2>💥 Get Your Exclusive Coupon!</h2>
+    <p>Claim your discount coupon for even more savings on your next purchase.</p>
+    <button id="getCouponBtn">Get Coupon</button>
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Sign In</h3>
+            <form id="signInForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+    <div id="couponMessage" style="display: none;">
+        <h3>You already claimed it!</h3>
+        <!-- Add Coupon Deals -->
+        <div id="couponDeals" style="display: none;">
+            <h4>Your Exclusive Coupon Deals:</h4>
+            <ul>
+                <li>🎉 10% off on your next purchase! Use code: <strong>COUPON10</strong></li>
+                <li>🎁 Free shipping on all orders! Use code: <strong>FREESHIP</strong></li>
+                <li>🛍 Buy 1 Get 1 Free on selected items! Use code: <strong>BUYONE</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Flash Sale Section -->
+<div class="flash-sale">
+    <div class="countdown-container">
+        <img src="images/IMG_0510.JPG" alt="Flash Sale icon" style="width: 150px; height: auto;">
+        <div class="countdown" id="countdown">
+            00:00:00
+        </div>
+    </div>
+
+    <!-- Flash Sale Products -->
+    <div class="product">
+        <img src="images/IMG_0512.JPG" width="50" height="50" alt="Flash Sale Product 1">
+        <h3>Lip Matte Pink Flash</h3>
+        <p><del>RM23.90</del> RM20.60</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Lip Matte Pink Flash', 20.60, 'images/IMG_0512.JPG')">Add to Bag</button>
+    </div>
+
+    <div class="product">
+        <img src="images/IMG_0518.JPG" alt="Flash Sale Product 2">
+        <h3>Skintific Truffle Biome</h3>
+        <p><del>RM65.00</del> RM45.00</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Skintific Truffle Biome', 45.00, 'images/IMG_0518.JPG')">Add to Bag</button>
+    </div>
+
+    <div class="product">
+        <img src="images/IMG_0509.JPG" alt="Flash Sale Product 3">
+        <h3>Flavlettes</h3>
+        <p><del>RM43.50</del> RM28.30</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Flavlettes', 28.30, 'images/IMG_0509.JPG')">Add to Bag</button>
+    </div>
+
+    <div class="product">
+        <img src="images/IMG_0516.JPG" alt="Flash Sale Product 4">
+        <h3>Rhode Blush</h3>
+        <p><del>RM145.00</del> RM90.00</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Rhode Blush', 90.00, 'images/IMG_0516.JPG')">Add to Bag</button>
+    </div>
+
+    <br>
+
+    <div class="product">
+        <img src="images/IMG_0513.JPG" alt="Flash Sale Product 5">
+        <h3>Skin Aqua Tone-Up</h3>
+        <p><del>RM40.00</del> RM30.00</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Skin Aqua Tone-Up', 30.00, 'images/IMG_0513.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images/IMG_0508.JPG" alt="Flash Sale Product 6">
+        <h3>Cetaphil Cleanser</h3>
+        <p><del>RM55.00</del> RM40.00</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Cetaphil Cleanser', 40.00, 'images/IMG_0508.JPG')">Add to Bag</button>
+    </div>
+    <div class="product">
+        <img src="images/IMG_0523.JPG" alt="Flash Sale Product 7">
+        <h3>Luxe Organix</h3>
+        <p><del>RM85.00</del> RM65.00</p>
+        <div class="star-rating">
+            <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
+        </div>
+        <button class="add-to-bag" onclick="addToCart('Luxe Organix', 65.00, 'images/IMG_0523.JPG')">Add to Bag</button>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Best Seller Section -->
+    <section class="best-seller">
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="carousel">
+        <div class="product">
+          <img src="images2/WTCMY-18624-front-zoom.jpg.avif" alt="Colgate Antibacterial & Fluoride Toothpaste">
+          <p>Colgate Antibacterial & Fluoride Toothpaste</p>
+          <button class="add-to-bag" onclick="addToCart('Colgate Antibacterial & Fluoride Toothpaste', 6.50, 'images/WTCMY-18624-front-zoom.jpg.avif')">Add to Bag</button>
+        </div>
+        <div class="product">
+          <img src="images2/WTCMY-31091-side-zoom.jpg.avif" alt="Multi-Purpose Wipes">
+          <p>Multi-Purpose Wipes</p>
+          <button class="add-to-bag" onclick="addToCart('Multi-Purpose Wipes', 3.00, 'images/WTCMY-31091-side-zoom.jpg.avif')">Add to Bag</button>
+        </div>
+        <div class="product">
+          <img src="images2/WTCMY-56634-side-zoom.jpg.avif" alt="Baking Soda Laundry Detergent">
+          <p>Baking Soda Laundry Detergent</p>
+          <button class="add-to-bag" onclick="addToCart('Baking Soda Laundry Detergent', 9.80, 'images/WTCMY-56634-side-zoom.jpg.avif')">Add to Bag</button>
+        </div>
+        <div class="product">
+            <img src="images2/WTCMY-23032-front-zoom.jpg.avif" alt="L-Glutathione Plus">
+            <p>L-Glutathione Plus</p>
+            <button class="add-to-bag" onclick="addToCart('L-Glutathione Plus', 45.00, 'images/WTCMY-23032-front-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-26548-side-zoom.jpg.avif" alt="Strawberry scented Gel Body Wash">
+            <p>Strawberry scented Gel Body Wash</p>
+            <button class="add-to-bag" onclick="addToCart('Strawberry scented Gel Body Wash', 12.30, 'images/WTCMY-26548-side-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-41770-back-zoom.jpg.avif" alt="Ensure Gold">
+            <p>Ensure Gold</p>
+            <button class="add-to-bag" onclick="addToCart('Ensure Gold', 148.00, 'images/WTCMY-41770-back-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-19176-side-zoom.jpg.avif" alt="Diane Shampoo">
+            <p>Diane Shampoo</p>
+            <button class="add-to-bag" onclick="addToCart('Diane Shampoo', 32.31, 'images/WTCMY-19176-side-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-30046-side-zoom.jpg.avif" alt="Avène">
+            <p>Avène</p>
+            <button class="add-to-bag" onclick="addToCart('Avène', 72.00, 'images/WTCMY-30046-side-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-BP_49327-front-zoom.jpg.avif" alt="Side Sealed Facial Puffs">
+            <p>Side Sealed Facial Puffs</p>
+            <button class="add-to-bag" onclick="addToCart('Side Sealed Facial Puffs', 2.50, 'images/WTCMY-BP_49327-front-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+          <div class="product">
+            <img src="images2/WTCMY-81337-side-zoom.jpg.avif" alt="X-flower Travel Tissues">
+            <p>X-flower Travel Tissues</p>
+            <button class="add-to-bag" onclick="addToCart('X-flower Travel Tissues', 3.80, 'images/WTCMY-81337-side-zoom.jpg.avif')">Add to Bag</button>
+          </div>
+      </div>
+    </section>
+
+     <!-- Most Popular Section -->
+     <section class="most-popular">
+        <h2 class="section-title">Most Popular</h2>
+        <div class="carousel">
+            <div class="product">
+                <img src="images2/WTCMY-1000941-front-zoom.jpg.avif" alt="The Originote">
+                <p>The Originote</p>
+                <button class="add-to-bag" onclick="addToCart('The Originote', 24.00, 'images/WTCMY-1000941-front-zoom.jpg.avif')">Add to Bag</button>
+            </div>
+            <div class="product">
+                <img src="images2/WTCMY-19712-side-zoom.jpg.avif" alt="Panadol ActiFast">
+                <p>Panadol ActiFast</p>
+                <button class="add-to-bag" onclick="addToCart('Panadol ActiFast', 4.00, 'images/WTCMY-19712-side-zoom.jpg.avif')">Add to Bag</button>
+            </div>
+
+            <div class="product">
+                <img src="images2/WTCMY-1004087-front-zoom.jpg.avif" alt="Judydoll Watery Glow Lipstick">
+                <p>Judydoll Watery Glow Lipstick</p>
+                <button class="add-to-bag" onclick="addToCart('Judydoll Watery Glow Lipstick', 23.20, 'images/WTCMY-1004087-front-zoom.jpg.avif')">Add to Bag</button>
+            </div>
+            <div class="product">
+                <img src="images2/WTCTH-BP_310927-front-zoom.jpg.avif" alt="Fino Hair Mask">
+                <p>Fino Hair Mask</p>
+                <button class="add-to-bag" onclick="addToCart('Fino Hair Mask', 33.60, 'images/WTCTH-BP_310927-front-zoom.jpg.avif')">Add to Bag</button>
+            </div>
+            <div class="product">
+                <img src="images2/WTCMY-BP_97476-front-zoom.jpg.avif" alt="Nivea Men">
+                <p>Nivea Men</p>
+                <button class="add-to-bag" onclick="addToCart('Nivea Men', 7.80, 'images/WTCMY-BP_97476-front-zoom.jpg.avif')">Add to Bag</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Payment Section (New Section) -->
+<section id="payment-options">
+    <div class="payment-container">
+        <img src="images2/621042FB-417D-46AB-860E-EC8D6904BB08_1_201_a.jpeg" alt="Payment Options">
+    </div>
+</section>
+
+<div class="watsons-footer">
+    <div class="container">
+        <!-- Watsons EStore Section -->
+        <div class="footer-column">
+            <h4>WATSONS ESTORE</h4>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showContent('return&exchange')">Return & Exchange</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('order&payment')">Order & Payment</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('shipping&delivery')">Shipping & Delivery</a></li>
+            </ul>
+        </div>
+  
+        <!-- Member Section -->
+        <div class="footer-column">
+            <h4>MEMBER</h4>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showContent('membershipregistration')">Membership Registration</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('memberbenefits')">Member Benefits</a></li>
+            </ul>
+        </div>
+  
+        <!-- About Us Section -->
+        <div class="footer-column">
+            <h4>ABOUT US</h4>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showContent('whoweare')">Who We Are</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('careers')">Careers</a></li>
+            </ul>
+        </div>
+  
+        <!-- Legal Section -->
+        <div class="footer-column">
+            <h4>LEGAL</h4>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showContent('termOfUse')">Term of Use</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('terms&conditions')">Terms & Conditions</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('privacypolicy')">Privacy Policy</a></li>
+                <li><a href="javascript:void(0);" onclick="showContent('copyrightinformation')">Copyright Information</a></li>
+            </ul>
+        </div>
+
+        <div align="center">
+
+        <div id="return&exchange" class="hidden-content">
+            <h2>Return & Exchange</h2>
+            <p>Exchange Policy:
+                Applies to Watsons Online Home Delivery, Home Delivery Express, and Click & Collect Express.
+                Request an exchange through the website or app within 3 days of receiving the goods.
+                Reasons for exchange: damaged/defective items, expired products, or incorrect items.
+                Items must be returned in original condition and packaging.
+                Exchanges are for the same product/brand, in the same quantity/size.
+                If replacement is unavailable, a refund option is offered.
+                Return & Refund Policy:
+                Applies to Watsons Online Home Delivery & Click & Collect Express.
+                Request a return/refund through the website or app within 3 days of receiving the goods.
+                Refunds are processed within 7-14 days, to the original payment method.
+                Reasons for return/refund: damaged/defective items, expired products, or incorrect items.
+                Products must be unopened, in original condition with proof of purchase.
+                Customers are responsible for the product condition during return.</p>
+            <button onclick="hideContent('return&exchange')">Close</button></div>
+        <div id="order&payment" class="hidden-content">
+            <h2>Order & Payment</h2>
+            <p>Ordering:
+                Customers can place orders via the Watsons Online store or mobile app.
+                Products can be added to the cart and reviewed before proceeding to checkout.
+                Payment Methods:
+                Payment options include credit/debit cards, online banking, and Watsons Member Points.
+                Secure payment gateways are used for transactions.
+                For Member Points, customers can redeem points during checkout.
+                Delivery and Collection:
+                Delivery is available through Home Delivery or Click & Collect Express.
+                Customers can choose delivery or pick-up at designated stores.
+                Order Confirmation:
+                An order confirmation email is sent once the order is processed.
+                Delivery times are based on the selected shipping method.
+                </p>
+            <button onclick="hideContent('order&payment')">Close</button></div>
+        <div id="shipping&delivery" class="hidden-content">
+            <h2>Shipping & Delivery</h2>
+            <p>Delivery Methods: Home Delivery and Click & Collect Express.
+                Shipping Costs: Fees vary based on the order and delivery method.
+                Delivery Time: Delivery timelines depend on location and method.
+                Tracking Orders: Customers can track orders via the website or app.
+                Delivery Areas: Available across Malaysia with faster delivery options in some areas.
+                Collection: Click & Collect orders can be picked up from selected stores after confirmation.</p>
+            <button onclick="hideContent('shipping&delivery')">Close</button></div>
+        </div>
+
+    </div>
+
+    <div align="center">
+
+        <div id="membershipregistration" class="hidden-content">
+            <h2>Membership Registration</h2>
+            <p>Eligibility: Available to customers aged 18 and above.
+                Benefits: Members get access to exclusive promotions, discounts, and rewards points.
+                Registration: Customers can sign up through the Watsons website or mobile app by providing basic personal details.
+                Points: Members earn Watsons points with every purchase, which can be redeemed for discounts.
+                Account: Members can manage their profile, view order history, and track points through their account.</p>
+            <button onclick="hideContent('membershipregistration')">Close</button></div>
+        <div id="memberbenefits" class="hidden-content">
+            <h2>Member Benefits</h2>
+            <p>Exclusive Discounts: Members receive special offers and promotions.
+                Points Rewards: Earn Watsons points with every purchase, which can be redeemed for discounts.
+                Birthday Rewards: Members get special birthday gifts or discounts.
+                Member-Only Events: Access to exclusive events and early-bird promotions.
+                Personalized Offers: Tailored discounts based on purchase history and preferences.
+                Faster Checkout: Streamlined process for quicker purchases.</p>
+            <button onclick="hideContent('memberbenefits')">Close</button></div>
+        </div>
+
+    <div align="center">
+
+        <div id="whoweare" class="hidden-content">
+            <h2>Who We Are</h2>
+            <p>Watsons is Asia's No.1 personal care and beauty retailer, with over 8,000 stores and 1,500 pharmacies in 16 markets across Asia, Europe, and the Middle East. Committed to helping customers look good, do good, and feel great, Watsons offers a wide range of brands and personalized advice in health, beauty, and personal care. It is part of the AS Watson Group, the world's largest international health and beauty retailer, operating over 16,800 stores in 30 markets with 130,000 employees. In 2023, AS Watson Group earned $23 billion in revenue, serving 5.5 billion customers annually through its offline and online platforms.</p>
+            <button onclick="hideContent('whoweare')">Close</button></div>
+        <div id="careers" class="hidden-content">
+            <h2>Careers</h2>
+            <p>Watsons, Asia's top health and beauty retailer since 1841, operates over 8,000 stores and eshops across 16 markets. As part of AS Watson Group, the world's largest international health and beauty retailer, Watsons offers a wide range of brands and personalized advice. The company promotes "The New Beautiful" philosophy, focusing on positivity, kindness, and sustainability. In 2023, AS Watson Group generated $23 billion in revenue, serving 5.5 billion shoppers yearly through both offline and online platforms. Watsons fosters an inclusive, sustainable work culture that encourages career growth and values the well-being of its employees, customers, and the planet.</p>
+            <button onclick="hideContent('careers')">Close</button></div>
+        </div>
+
+    </div>
+
+        <div align="center">
+
+        <div id="termOfUse" class="hidden-content">
+            <h2>Term of Use</h2>
+            <p>Terms of Use govern the use of www.watsons.com.my and the Watsons Malaysia mobile app, operated by Watson's Personal Care Stores Sdn. Bhd. By accessing or using the Site, you agree to these terms, which may be updated without prior notice. Users must ensure their systems meet technical requirements, keep login credentials secure, and comply with all applicable laws. Watsons disclaims liability for site disruptions, inaccuracies, and damages, providing the Site for private use only. Intellectual property on the Site is protected, and user-generated content must adhere to guidelines. Malaysian laws govern these terms, and disputes are resolved in Malaysian courts.</p>
+            <button onclick="hideContent('termOfUse')">Close</button></div>
+        <div id="terms&conditions" class="hidden-content">
+            <h2>Terms & Conditions</h2>
+            <p>Terms & Conditions outline the rules for purchasing products from Watsons' website or app, operated by Watson's Personal Care Stores Sdn. Bhd. Orders are confirmed upon dispatch, and Watsons reserves the right to refuse or cancel orders. Delivery options include home delivery or in-store collection, with specific charges and timeframes. Refunds, exchanges, and returns are allowed under certain conditions, such as damaged or incorrect products, provided requests are made within stated time limits. Payment must be made in full, and refunds will follow the original payment method. Customers must comply with all laws, and Watsons limits liability to the products purchase price.</p>
+            <button onclick="hideContent('terms&conditions')">Close</button></div>
+        <div id="privacypolicy" class="hidden-content">
+            <h2>Privacy Policy</h2>
+            <p>This privacy policy explains how we collect, process, and protect personal data through our stores, customer services, websites, apps, and third-party platforms (“Sites”). We collect information such as your name, contact details, IP address, shopping habits, and preferences. Data is obtained directly through actions like registering on our Sites, joining loyalty programs, or using cookies. We process this data to provide services, relying on legal grounds such as contract performance or fraud prevention. For inquiries, contact us via email at dp-queries@watsons.com.my or by post at Level 7, Menara Exchange 106, Tun Razak Exchange, 55188 Kuala Lumpur, Malaysia.</p>
+            <button onclick="hideContent('privacypolicy')">Close</button></div>
+        <div id="copyrightinformation" class="hidden-content">
+            <h2>Copyright Information</h2>
+            <p>The information and materials on this website may be protected under intellectual property laws and rights (including without limitation laws protecting copyright). It is your responsibility to determine whether any infringement will occur if you download, copy, transmit, publish, store or otherwise use or deal with the information contained in this website without the prior consent of Watsons Your Personal Store.
+               No person, whether an individual or a body corporate, shall create or establish a hyperlink to the Watsons Your Personal Store Corporate Website by hypertext reference or imaging without the written permission of Watsons Your Personal Store.</p>
+            <button onclick="hideContent('copyrightinformation')">Close</button></div>
+        </div>
+
+    </div>
+    
+    <footer>
+        <big><p>© 2025 Watsons Malaysia</p></big>
+    </footer>
+    
+    <script>
+    // Set the end date for the flash sale (e.g., 4 hours from now)
+    var countDownDate = new Date().getTime() + 4 * 60 * 60 * 1000; // 4 hours
+    
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+    
+        // Get the current time
+        var now = new Date().getTime();
+    
+        // Calculate the time remaining
+        var distance = countDownDate - now;
+    
+        // Time calculations for hours, minutes, and seconds
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        // Add leading zeroes if needed (e.g., "03" instead of "3")
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+    
+        // Display the result in the countdown element
+        document.getElementById("countdown").innerHTML = hours + ":" + minutes + ":" + seconds;
+    
+        // If the countdown is over, display a message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+    </script>
+
+    <!-- Add the JavaScript for the Coupon Deal functionality -->
+<script>
+    // Get the modal elements
+    var modal = document.getElementById("signInModal");
+    var btn = document.getElementById("getCouponBtn");
+    var span = document.getElementsByClassName("close")[0];
+    var signInForm = document.getElementById("signInForm");
+    var couponMessage = document.getElementById("couponMessage");
+    var couponDeals = document.getElementById("couponDeals");
+
+    // When the user clicks on the "Get Coupon" button, show the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on the close button, hide the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Handle form submission for sign-in
+    signInForm.onsubmit = function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // You can add your authentication logic here
+        // For now, we'll just simulate a successful sign-in.
+
+        // Hide the modal and show the coupon message
+        modal.style.display = "none";
+        couponMessage.style.display = "block";
+
+        // Display the coupon deals after claiming
+        couponDeals.style.display = "block";
+    }
+</script>
+
+<script>
+    function showContent(sectionId) {
+        document.getElementById(sectionId).style.display = "block";
+    }
+    
+    function hideContent(sectionId) {
+        document.getElementById(sectionId).style.display = "none";
+    }
+    </script>
+
+<script>
+    function addToCart(name, price, image) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Add product to cart array
+        cart.push({ name: name, price: price, image: image });
+
+        // Save updated cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " has been added to your cart!");
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let backToTopButton = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) { 
+                backToTopButton.style.display = "block"; 
+            } else { 
+                backToTopButton.style.display = "none"; 
+            }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+
+<button id="backToTop" class="back-to-top">↑ Back to Top</button>
+    
+    </body>
+    </html>
