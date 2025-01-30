@@ -255,6 +255,8 @@
         }
 
         let cartTotal = 0;
+        let freeItems = 0;
+        let discountCode = localStorage.getItem("discountCode");
 
         cart.forEach((item, index) => {
             let div = document.createElement("div");
@@ -263,9 +265,15 @@
             let price = parseFloat(item.price);
             let discountedPrice = price;
 
-            // Apply 10% discount if COUPON10 is already used
-            if (localStorage.getItem("discountCode") === "COUPON10") {
-                discountedPrice = price * 0.9; // 10% off
+            // Apply 10% discount if COUPON10 is used
+            if (discountCode === "COUPON10") {
+                discountedPrice = price * 0.9;
+            }
+
+            // Apply Buy 1 Get 1 Free if BUYONE is used
+            if (discountCode === "BUYONE" && index % 2 === 1) {
+                discountedPrice = 0;
+                freeItems++;
             }
 
             div.innerHTML = `
@@ -278,6 +286,15 @@
         });
 
         total.innerText = `RM${cartTotal.toFixed(2)}`;
+
+        // Show Free Shipping message if FREESHIP is used
+        if (discountCode === "FREESHIP") {
+            let freeShipMsg = document.createElement("p");
+            freeShipMsg.innerText = "🎉 Free shipping applied!";
+            freeShipMsg.style.color = "green";
+            freeShipMsg.style.fontWeight = "bold";
+            container.appendChild(freeShipMsg);
+        }
     }
 
     function removeItem(index) {
@@ -298,7 +315,7 @@
     }
 
     function checkout() {
-        alert("Thank you for buying in Watson!");
+        alert("Thank you for buying at Watsons!");
         clearCart();
     }
 
@@ -309,16 +326,26 @@
         }
 
         let code = document.getElementById("discount-code").value.trim().toUpperCase();
-        
-        if (code === "COUPON10") {
-            localStorage.setItem("discountCode", "COUPON10");
+        let validCodes = ["COUPON10", "FREESHIP", "BUYONE"];
+
+        if (validCodes.includes(code)) {
+            localStorage.setItem("discountCode", code);
             discountApplied = true;
 
-            document.getElementById("discount-message").innerText = "10% Discount Applied! 🎉";
+            let message = "";
+            if (code === "COUPON10") {
+                message = "10% Discount Applied! 🎉";
+            } else if (code === "FREESHIP") {
+                message = "Free shipping applied! 🎉";
+            } else if (code === "BUYONE") {
+                message = "Buy 1 Get 1 Free applied! 🎉";
+            }
+
+            document.getElementById("discount-message").innerText = message;
             document.getElementById("couponMessage").style.display = "block";
             document.getElementById("couponDeals").style.display = "block";
 
-            loadCart(); // Reload cart to apply discount per product
+            loadCart(); // Reload cart to apply discounts
         } else {
             alert("Invalid discount code! Please try again.");
         }
