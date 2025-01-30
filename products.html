@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watsons Product List</title>
+<style>
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #00bcd4;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header img {
+    width: 150px;
+    height: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: #00bcd4;
+}
+
+.search-bar {
+display: flex;
+justify-content: center;
+padding: 10px;
+background-color: #e8e8e8;
+}
+.search-bar input {
+width: 80%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+
+}
+.categories {
+margin: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+}
+.category {
+background-color: white;
+border: 1px solid #ddd;
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.category h2 {
+margin-top: 0;
+color: #049797;
+}
+.category a {
+text-decoration: none;
+color: #049797;
+font-weight: bold;
+}
+.category a:hover {
+text-decoration: underline;
+}
+.hot-items {
+margin: 20px;
+padding: 20px;
+background-color: white;
+
+border: 1px solid #ddd;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.hot-items h2 {
+color: #049797;
+}
+.hot-items .carousel {
+display: flex;
+overflow-x: auto;
+scroll-behavior: smooth;
+gap: 20px;
+padding: 10px 0;
+}
+.hot-items .carousel::-webkit-scrollbar {
+display: none;
+}
+.hot-items img {
+width: 100px;
+height: 100px;
+background-color: #ddd;
+border-radius: 5px;
+}
+.hot-items .product {
+flex: 0 0 auto;
+text-align: center;
+margin: 10px;
+}
+.hot-items .product p {
+margin: 5px 0;
+
+}
+
+.product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .product p {
+            color: #888;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .add-to-bag {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .add-to-bag:hover {
+            background: #0097a7;
+        }
+
+        .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #008c9e;
+    transform: scale(1.1);
+}
+
+footer {
+            background-color: #00bcd4;
+            color: white;
+            text-align: center;
+            padding: 4px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 12px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+
+</style>
+</head>
+
+<body>
+
+    <div align="center">
+        <audio controls>
+            <source src="audio/Watsons_Kaw_Kaw_Deals..mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio></div>
+        
+    
+    <header>
+        <img src="images/IMG_0520.JPG" alt="Watsons Logo" style="width: 240px; height: auto;">
+    </header>
+
+    <nav> 
+        <div class="navbar">
+            <a href="index.html" >Home ♡</a>
+            <a href="products.html">Products ♡</a>
+            <a href="cart.html">Cart ♡</a>
+            <a href="discover.html">Discover ♡</a>
+            <a href="contact.html">Contact ♡</a>
+        </div>
+    </nav> 
+
+<div align="center">
+    <h1><b>Watsons Product Lists</b></h1>
+</div>
+
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Search for products...">
+<button onclick="searchProduct()">Search</button>
+</div>
+
+<script>
+function searchProduct() {
+const searchInput = document.getElementById("searchInput").value.toLowerCase();
+const products = document.querySelectorAll(".product");
+let found = false;
+products.forEach(product => {
+const productName = product.querySelector("p").textContent.toLowerCase();
+if (productName.includes(searchInput)) {
+product.scrollIntoView({ behavior: "smooth", block: "center" });
+product.style.border = "2px solid #049797";
+found = true;
+setTimeout(() => {
+product.style.border = "none";
+}, 2000);
+}
+});
+
+if (!found) {
+alert("Product not found!");
+}
+}
+
+</script>
+</div>
+
+
+<table style="width: 70%;" align="center">
+    <br>
+       <tr>
+        <th> <img src="images/IMG_0637.PNG" alt="Body Scrub Bath Garden"; height="200px"> <br> Bath Garden Scrub <br> RM 25.00 <br> <button class="add-to-bag" onclick="addToCart('Body Scrub Bath Garden', 25.00, 'images/IMG_0637.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0584.JPG" alt="Vitamin C Blackmores"; height="200px"> <br> Vitamin C Blackmores <br> RM 21.00 <br> <button class="add-to-bag" onclick="addToCart('Vitamin C Blackmores', 21.00, 'images/IMG_0584.JPG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0606.PNG" alt="Toner Some by Mi"; height="200px"> <br> Toner Some by Mi <br> RM 93.50 <br> <button class="add-to-bag" onclick="addToCart('Toner Some by Mi', 93.50, 'images/IMG_0606.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0644.PNG" alt="Body Wash Carrie Junior"; height="200px"> <br> Body Wash Carrie Junior <br> RM 17.50 <br> <button class="add-to-bag" onclick="addToCart('Body Wash Carrie Junior', 17.50, 'images/IMG_0644.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0621.PNG" alt="Kitsui Whitie Snow"; height="200px"> <br> Kitsui Whitie Snow <br> RM 44.70 <br> <button class="add-to-bag" onclick="addToCart('Kitsui Whitie Snow', 44.70, 'images/IMG_0621.PNG')">Add to Bag</button> </th>
+       </tr>
+
+       <tr>
+        <th> <img src="images/IMG_0602.PNG" alt="Cetaphil Cleanser"; height="200px"> <br> Cetaphil Cleanser <br> RM 39.30 <br> <button class="add-to-bag" onclick="addToCart('Cetaphil Cleanser', 39.30, 'images/IMG_0602.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0635.PNG" alt="Libresse"; height="200px"> <br>Libresse <br> RM 11.30 <br> <button class="add-to-bag" onclick="addToCart('Libresse', 11.30, 'images/IMG_0635.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0634.PNG" alt="Bio Oil"; height="200px"> <br> Bio Oil <br> RM 123.00 <br> <button class="add-to-bag" onclick="addToCart('Bio Oil', 123.00, 'images/IMG_0634.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0646.PNG" alt="Dettol Body Wash"; height="200px"> <br> Dettol Body Wash <br> RM 14.70 <br> <button class="add-to-bag" onclick="addToCart('Dettol Body Wash', 14.70, 'images/IMG_0646.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0607.PNG" alt="Toner Wardah"; height="200px"> <br> Toner Wardah <br> RM 10.50 <br> <button class="add-to-bag" onclick="addToCart('Toner Wardah', 10.50, 'images/IMG_0607.PNG')">Add to Bag</button> </th>
+       </tr>
+
+       <tr>
+        <th> <img src="images/IMG_0616.PNG" alt="Face Mask Skin Food"; height="200px"> <br> Face Mask Skin Food <br> RM 8.00 <br> <button class="add-to-bag" onclick="addToCart('Face Mask Skin Food', 8.00, 'images/IMG_0616.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0622.PNG" alt="Berocca"; height="200px"> <br> Berocca Vitamin B <br> RM 25.90 <br> <button class="add-to-bag" onclick="addToCart('Berocca', 25.90, 'images/IMG_0622.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0612.PNG" alt="Sunscreen Biore"; height="200px"> <br> Sunscreen Biore <br> RM 16.80 <br> <button class="add-to-bag" onclick="addToCart('Sunscreen Biore', 16.80, 'images/IMG_0612.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0605.PNG" alt="Toner Simple"; height="200px"> <br> Toner Simple <br> RM 20.00 <br> <button class="add-to-bag" onclick="addToCart('Toner Simple', 20.00, 'images/IMG_0605.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0648.PNG" alt="HAAN Body Wash"; height="200px"> <br> HAAN Body Wash <br> RM 80.90 <br> <button class="add-to-bag" onclick="addToCart('HAAN Body Wash', 80.90, 'images/IMG_0648.PNG')">Add to Bag</button> </th>
+       </tr>
+
+       <tr>
+        <th> <img src="images/IMG_0649.PNG" alt="Kustie Body Wash"; height="200px"> <br> Kustie Body Wash <br> RM 33.50 <br> <button class="add-to-bag" onclick="addToCart('Kustie Body Wash', 33.50, 'images/IMG_0649.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0642.PNG" alt="WATSONS Body Scrub"; height="200px"> <br> WATSONS Body Scrub <br> RM 10.00 <br> <button class="add-to-bag" onclick="addToCart('WATSONS Body Scrub', 10.00, 'images/IMG_0642.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0603.PNG" alt="Hada Labo Cleanser"; height="200px"> <br> Hada Labo Cleanser <br> RM 31.10 <br> <button class="add-to-bag" onclick="addToCart('Hada Labo Cleanser', 31.10, 'images/IMG_0603.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0633.PNG" alt="WATSONS tissue"; height="200px"> <br> WATSONS tissue <br> RM 3.80 <br> <button class="add-to-bag" onclick="addToCart('WATSONS tissue', 3.80, 'images/IMG_0633.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0585.PNG" alt="Sunsilk Shampoo"; height="200px"> <br> Sunsilk Shampoo <br> RM 15.90 <br> <button class="add-to-bag" onclick="addToCart('Sunsilk Shampoo', 15.90, 'images/IMG_0585.PNG')">Add to Bag</button> </th>
+       </tr>
+
+       <tr>
+        <th> <img src="images/IMG_0629.PNG" alt="Dr. Mist Body Spray"; height="200px"> <br> Dr. Mist Body Spray <br> RM 12.90 <br> <button class="add-to-bag" onclick="addToCart('Dr. Mist Body Spray', 12.90, 'images/IMG_0629.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0586.PNG" alt="Selsun Blue Shampoo"; height="200px"> <br> Selsun Blue Shampoo <br> RM 30.50 <br> <button class="add-to-bag" onclick="addToCart('Selsun Blue Shampoo', 30.50, 'images/IMG_0586.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0583.JPG" alt="Beauty of Joseon Sunscreen"; height="200px"> <br> Beauty of Joseon Sunscreen <br> RM 62.90 <br> <button class="add-to-bag" onclick="addToCart('Beauty of Joseon Sunscreen', 62.90, 'images/IMG_0583.JPG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0626.PNG" alt="WELLCARE Multi Vitamins 60's"; height="200px"> <br> WELLCARE Multi Vitamins 60's <br> RM 29.50 <br> <button class="add-to-bag" onclick="addToCart('WELLCARE Multi Vitamins 60 s', 29.90, 'images/IMG_0626.PNG')">Add to Bag</button> </th>
+        <th> <img src="images/IMG_0576.PNG" alt="WATSONS Hair Serum"; height="200px"> <br> WATSONS Hair Serum<br> RM 13.50 <br> <button class="add-to-bag" onclick="addToCart('WATSONS Hair Serum', 13.50, 'images/IMG_0576.PNG')">Add to Bag</button> </th>
+       </tr>
+
+</table>
+
+
+<footer class="footer"> 
+    <big><p>© 2025 Watsons Malaysia</p></big> 
+</footer> 
+
+<script>
+    function addToCart(name, price, image) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        // Add product to cart array
+        cart.push({ name: name, price: price, image: image });
+
+        // Save updated cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert(name + " has been added to your cart!");
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let backToTopButton = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) { 
+                backToTopButton.style.display = "block"; 
+            } else { 
+                backToTopButton.style.display = "none"; 
+            }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+</script>
+
+<button id="backToTop" class="back-to-top">↑ Back to Top</button>
+
+
+</body>
+</html>
